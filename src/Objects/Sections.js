@@ -13,6 +13,10 @@ import logos from "../Assets/images/Logo.png";
 import pdf from "../Assets/Yassin_YOUNES_CV.pdf";
 
 
+import emailjs from '@emailjs/browser';
+
+import { useRef } from "react";
+
 const Acadamic__main_Section = styled.section`
    display: flex;
    flex-direction: row;
@@ -274,14 +278,14 @@ const observer = new IntersectionObserver((entries) => {
              entry.target.classList.remove("Container__Animation__Fade");
        }
     });
-});
+   });
 
- export function Skills_Title({number,title,subtitle,id}){
-    return(<Skills_Title_Style id={id}>
-             <h1 className="Header__Title"><span>{number}</span> {title}</h1>
-             <h1 className="Header__Title__1">{subtitle}</h1>
-          </Skills_Title_Style>
-    )
+export function Skills_Title({number,title,subtitle,id}){
+   return(<Skills_Title_Style id={id}>
+            <h1 className="Header__Title"><span>{number}</span> {title}</h1>
+            <h1 className="Header__Title__1">{subtitle}</h1>
+         </Skills_Title_Style>
+   )
 }
           
  export function ComboSkill(props){
@@ -350,7 +354,7 @@ export function AcademicLifeSection(){
                   <h2>BAC+1 - IUT Aix-Marseille D’Arles </h2>
                   <p>-Projet de fin d'études : création d'une application web de gestion du temps et des tâches.</p>
                   <p>-Objectif : développer une solution simple et intuitive pour aider les utilisateurs à planifier et à gérer leur temps de manière efficace.
-Méthode : utilisation de HTML, CSS, JavaScript et PHP pour développer l'interface et les fonctionnalités de l'application.</p>
+   Méthode : utilisation de HTML, CSS, JavaScript et PHP pour développer l'interface et les fonctionnalités de l'application.</p>
                   <p>-Résultats : application permettant de créer des tâches, de les assigner à des catégories et de définir des rappels pour les terminer à temps, avec un système de notification par e-mail.</p>
                </div>
             </div>
@@ -465,72 +469,101 @@ const ContactSectionS = styled.div`
    flex-direction: column;
    justify-content: center;
    align-items: center;
-.Home__Contact__Section{
-   width: 50%;
-   height: 100%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
-   padding: 2%;
-   background-color:  ${colorPalette.darkGrey};
-   margin: 0 10%;
-   border-radius: 10px;
-   box-shadow: 0 0 10px 0px ${colorPalette.darkGrey};
-   .myDetails{
+   .Home__Contact__Section{
       width: 50%;
       height: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      h1{
-         font-size: 2.5rem;
-         color: ${colorPalette.white};
-         margin-bottom: 2%;
+      padding: 2%;
+      background-color:  ${colorPalette.darkGrey};
+      margin: 0 10%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 0px ${colorPalette.darkGrey};
+      .myDetails{
+         width: 50%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         h1{
+            font-size: 2.5rem;
+            color: ${colorPalette.white};
+            margin-bottom: 2%;
+         }
+
+         a{
+            color: ${colorPalette.white};
+            text-decoration: none;
+            margin-bottom: 2%;
+            &:hover{
+               color: ${colorPalette.green};
+               transition: 0.3s;
+            }
+
+            //change size of the icon
+            svg{
+               width: 30px;
+               height: 30px;
+            }
+
+         }
       }
-   }
-   .myForm{
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  
-      form{
-         input,textarea{
+      .myForm{
+         width: 50%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+   
+         form{
+            input,textarea{
+               width: 100%;
+               height: 30px;
+               margin-bottom: 2%;
+               border: none;
+               border-radius: 5px;
+            }
+            textarea{
+               height: 200px;
+            }
+         }
+         button{
             width: 100%;
             height: 30px;
-            margin-bottom: 2%;
             border: none;
             border-radius: 5px;
-         }
-         textarea{
-            height: 200px;
-         }
-      }
-      button{
-         width: 100%;
-         height: 30px;
-         border: none;
-         border-radius: 5px;
-         background-color: ${colorPalette.green};
-         color: ${colorPalette.white};
-         font-weight: bold;
-         cursor: pointer;
-         &:hover{
-           transform: scale(1.03);
-             transition: 0.3s;
+            background-color: ${colorPalette.green};
+            color: ${colorPalette.white};
+            font-weight: bold;
+            cursor: pointer;
+            &:hover{
+            transform: scale(1.03);
+               transition: 0.3s;
+            }
          }
       }
-   }
 
-}
+   }
 `;
 
 export function ContactSection(){
+   const form = useRef();
 
+   const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_zv6aqfu', 'template_b49ga5w', form.current, 'TLsRDUKtgpPwHDbqb')
+        .then((result) => {
+            console.log(result.text);
+            window.location.reload();
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
 
    return(
       <ContactSectionS id='ContactForm'>
@@ -543,19 +576,34 @@ export function ContactSection(){
             <div className="myDetails__Container">
                <p>mineboxarabic@gmail.com</p>
                <p>Tel: +33 7 85 00 85 13</p>
+              
              </div>
+             <a href="https://www.youtube.com/channel/UCDN3CCtecQAjMMYpihYWG1g"><FontAwesomeIcon icon="fa-brands fa-youtube" /></a>
+             <a href="https://www.instagram.com/mineboxarabic/"><FontAwesomeIcon icon="fa-brands fa-instagram" /></a>
          </div>
 
         <div className="myForm">
-        <form>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <textarea placeholder="Message" />
-            <button>SEND</button>
-         </form>
+        <form ref={form} onSubmit={sendEmail}>
+            <label>Name</label>
+            <input type="text" name="user_name" />
+            <label>Email</label>
+            <input type="email" name="user_email" />
+            <label>Message</label>
+            <textarea name="message" />
+            <input style={
+               {
+                  backgroundColor: colorPalette.green,
+                  color: colorPalette.white,
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                  
+               }
+            } type="submit" value="send" />
+      </form>
          </div>
         
       </div>
+      
       </ContactSectionS>
 
 

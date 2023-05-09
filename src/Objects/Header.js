@@ -154,45 +154,48 @@ const HeaderX = styled.nav`
     }
 `;
 const FooterX = styled.footer`
-@font-face {
-        font-family: 'headerFont' ;
-        src: url(${fontTest});
-    }
-    display: flex;
-    background-color: #333B50;
-    color: #fff;
-    text-align: center;
-    justify-content: center;
+    @font-face {
+            font-family: 'headerFont' ;
+            src: url(${fontTest});
+        }
+        display: flex;
+        background-color: #333B50;
+        color: #fff;
+        text-align: center;
+        justify-content: center;
 
-    width: 100%;
-    height: 120px;
-    margin: 0;
-    padding: 0;
-
-    justify-self: flex-end;
-    align-items: center;
-    p{
-        font-family: 'headerFont';
-        font-size: 20px;
-        color: #939dab;
+        width: 100%;
+        height: 120px;
         margin: 0;
         padding: 0;
-        margin-left: 10px;
-    }
 
-    img{
-        width:80px;
-        height: 80px;
-        padding:0;
-        margin:0;
-        margin-right: 60px;
-        margin-top: 10px ;
-        cursor: pointer;
-    }
+        justify-self: flex-end;
+        align-items: center;
+        p{
+            font-family: 'headerFont';
+            font-size: 20px;
+            color: #939dab;
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        img{
+            width:80px;
+            height: 80px;
+            padding:0;
+            margin:0;
+            margin-right: 60px;
+            margin-top: 10px ;
+            cursor: pointer;
+        }
 
 
 
 `;
+
+
+
 export function Header({PageNumber}){
     return (
         <HeaderX PageNumber={PageNumber}>
@@ -204,10 +207,54 @@ export function Header({PageNumber}){
             
             <ul>
                 <li><a href="#/">HOME</a></li>
-                <li><Link activeClass="active" spy={true} smooth={true} offset={0} duration={2000}  to="skillsAnchor">SKILLS</Link></li>
-                <li><Link activeClass="active" spy={true} smooth={true} offset={0} duration={2000}  to="AcademicAnchor">ACADAMIC</Link></li>
+                <li><Link activeClass="active" spy={true} smooth={true} offset={0} duration={2000} onClick={
+                    ()=>{
+                        //check if the page is in the home page
+                        if(PageNumber !== 1){
+                            //if not go to the home page
+                            window.location.href = "#/";
+                        }
+
+                        //go to the skills section
+                        setTimeout(() => {
+                        document.getElementById("skillsAnchor").scrollIntoView({behavior: "smooth"});
+                        }, 200);
+
+                    }
+                }  to="skillsAnchor">SKILLS</Link></li>
+                <li><Link activeClass="active" spy={true} smooth={true} offset={0} duration={2000} onClick={
+                    ()=>{
+                        //check if the page is in the home page
+                        if(PageNumber !== 1){
+                            //if not go to the home page
+                            window.location.href = "#/";
+                        }
+
+                        //go to the skills section
+                        setTimeout(() => {
+                        document.getElementById("AcademicAnchor").scrollIntoView({behavior: "smooth"});
+                        }, 200);
+
+                    }
+                }  to="AcademicAnchor">ACADAMIC</Link></li>
                 <li><a href="#/Portfolio">PORTFOLIO</a></li>
-                <li><Link activeClass="active" spy={true} smooth={true} offset={0} duration={2000} to="ContactForm">CONTACT</Link></li>
+
+                <li><Link activeClass="active" onClick={
+                    ()=>{
+                        //check if the page is in the home page
+                        if(PageNumber !== 1){
+                            //if not go to the home page
+                            window.location.href = "#/";
+                        }
+
+                        //go to the skills section
+                        setTimeout(() => {
+                        document.getElementById("ContactForm").scrollIntoView({behavior: "smooth"});
+                        }, 200);
+
+                    }
+                } spy={true} smooth={true} offset={0} duration={2000} to="ContactForm">CONTACT</Link></li>
+                <li><a href="#/AboutMe">ABOUT ME</a></li>
             </ul>
         </HeaderX>
     );   
