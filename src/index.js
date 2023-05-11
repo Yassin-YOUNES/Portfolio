@@ -5,7 +5,7 @@ import { Helmet }  from 'react-helmet';
 import './index.scss';
 import Portfolio from "./Pages/Portfolio";
 import AboutMe from "./Pages/AboutMe";
-
+import Videos from "./Pages/Videos";
 import Designs from "./Pages/Designs";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -25,7 +25,7 @@ root.render(
       <Route path="/Portfolio" element={<Portfolio />} />
       <Route path="/Designs" element={<Designs />} />
       <Route path="/AboutMe" element={<AboutMe />} />
-
+      <Route path="/Videos" element={<Videos />} />
     </Routes>
   </Router>
   </React.StrictMode>

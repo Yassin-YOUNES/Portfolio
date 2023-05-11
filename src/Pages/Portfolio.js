@@ -6,6 +6,7 @@ import { colorPalette } from '../Objects/Context';
 import projects from '../Data/Projects.json'
 import { GalleryProjects } from '../Objects/GalleryProjects';
 import { Link } from 'react-scroll';
+import { Videos } from './Videos';
 const Choice__Container = styled.div`
 background-color: ${colorPalette.darkBlue};
 
@@ -85,8 +86,11 @@ function Portfolio(){
 
     return(
         <>
+        
         <Header PageNumber={4} />
+
         <Choice__Container>
+
             <div className='Choice__Programming'>
                 <Link offset={100} smooth={true} to='GalleryProjects' duration={1000}>PROGRAMMING</Link>
             </div>
@@ -96,6 +100,7 @@ function Portfolio(){
             
         </Choice__Container>
         <GalleryProjects id={"GalleryProjects"} />
+        
         <Footer />
         </>
 
