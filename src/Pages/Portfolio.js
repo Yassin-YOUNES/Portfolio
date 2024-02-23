@@ -11,7 +11,6 @@ const Choice__Container = styled.div`
 background-color: ${colorPalette.darkBlue};
 
     height: 90vh;
-    width: 98vw;
     padding: 5px;
     display: flex;
     justify-content: center;

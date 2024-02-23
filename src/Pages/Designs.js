@@ -8,7 +8,7 @@ import { isMouseOverAComboBox , colorPalette } from '../Objects/Context';
 import { GalleryImages } from "../Objects/GalleryImages";
 
 
-import '../Styles/Home.scss';
+import '../styles/Home.scss';
 /**
  * The color pallet of this website is:
  * #00d646 : green

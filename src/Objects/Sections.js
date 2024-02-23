@@ -111,7 +111,7 @@ const Acadamic__main_Section = styled.section`
 
       h1{
          font-family: 'lulo font';
-         font-size: 1rem;
+         font-size: 2rem;
          font-weight: 700;
          margin: 0;
          padding: 0;
@@ -120,7 +120,7 @@ const Acadamic__main_Section = styled.section`
       }
       h2{
          font-family: 'small thin font';
-         font-size: 1rem;
+         font-size: 1.5rem;
          font-weight: 700;
          margin: 0;
          margin-bottom: 20px;
@@ -130,7 +130,7 @@ const Acadamic__main_Section = styled.section`
       p{
          font-family: 'small thin font';
          text-align: left;
-         font-size: 0.5rem;
+         font-size: 1rem;
          font-weight: 700;
          margin: 6px;
          padding: 0;
@@ -350,7 +350,7 @@ export function AcademicLifeSection(){
                </div>
 
                <div className="Academic__Side__info__Container">
-                  <h1>2021 - 2022</h1>
+                  <h1>2021 - 2024</h1>
                   <h2>BAC+1 - IUT Aix-Marseille D’Arles </h2>
                   <p>-Projet de fin d'études : création d'une application web de gestion du temps et des tâches.</p>
                   <p>-Objectif : développer une solution simple et intuitive pour aider les utilisateurs à planifier et à gérer leur temps de manière efficace.

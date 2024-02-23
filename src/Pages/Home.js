@@ -10,7 +10,7 @@ import { isMouseOverAComboBox , colorPalette } from '../Objects/Context';
 import { useContext } from "react";
 import * as Sections from "../Objects/Sections";
 
-import '../Styles/Home.scss';
+import '../styles/Home.scss';
 /**
  * The color pallet of this website is:
  * #00d646 : green
