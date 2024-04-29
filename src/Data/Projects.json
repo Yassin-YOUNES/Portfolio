@@ -44,6 +44,18 @@
             "Image":"https://i.ibb.co/S39Jyxg/Illustration-lune-lpp-2.png",
             "github":"https://github.com/mineboxarabic/lepetitprince",
             "keyWords": ["HTML", "CSS", "Angualr", "API", "JavaScript", "TypeScript"]
+        },
+        {
+            "Name": "ProxiMap",
+            "Description":{
+                "en":"ProxiMap is ",
+                "fr":"ProxiMap est "
+            
+            },
+            "mdFile":"https://raw.githubusercontent.com/mineboxarabic/ProxiMap/main/Readme.md",
+            "Image":"https://i.ibb.co/Tvgqw3k/Screenshot-from-2024-04-29-13-49-52.png",
+            "github":"https://github.com/mineboxarabic/ProxiMap",
+            "keyWords": ["HTML", "CSS", "REACT", "API", "JavaScript", "TypeScript" , "Node"]
         }
     ]
 }
